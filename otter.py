@@ -50,6 +50,12 @@ def main():
 
     print("Today date is: ", today) 
     print(x)
+
+    base = r.html.xpath('/html/body/main/div/div/div/div/section[1]/div/div/div[1]/div[1]/table')
+    for element in base:
+      for tr in element.find('tr'):
+        td = tr.find('td')
+        print(f"{td[0].text:24}: {td[1].text}")
         
 if __name__ == '__main__':
     main()
