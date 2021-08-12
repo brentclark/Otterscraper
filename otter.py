@@ -86,7 +86,8 @@ def main():
             td = tr.find('td')
             rates += f"{td[0].text:24}: {td[1].text}\n"
 
-    result = x.get_string() + rates
+    searchdate = f"Search from: {data['from_date']}\nSearch to:{data['to_date']}\n"
+    result = searchdate + x.get_string() + rates
     mailgmail(result, today)
 if __name__ == '__main__':
     main()
