@@ -46,7 +46,8 @@ def main():
     today = date.today()
     session = HTMLSession()
     data = {
-        'from_date': today,
+        #'from_date': today,
+        'from_date': '2022-08-30',
         'to_date': '2029-07-30',
         'resort': 26,
         'unit_id': 26,
@@ -71,13 +72,13 @@ def main():
     for tr in div.find('tr'):
         td = tr.find('td')
         if len(td) >= 1:
-            if td[1].text == 'Yes':
-                row = [
-                    td[0].text, # 'Date'
-                    td[1].text, # 'Available'
-                    td[2].text, # 'Nr'
-                ]
-                x.add_row(row)
+            #if td[1].text == 'Yes':
+            row = [
+                td[0].text, # 'Date'
+                td[1].text, # 'Available'
+                td[2].text, # 'Nr'
+            ]
+            x.add_row(row)
 
     rates = '\n'
     base = r.html.xpath('/html/body/main/div/div/div/div/section[1]/div/div/div[1]/div[1]/table')
